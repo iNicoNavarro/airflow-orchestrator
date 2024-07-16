@@ -10,6 +10,7 @@ def extract_data():
     with PostgresDataProdHook().get_conn() as conn:
         with conn.cursor() as cursor:
             cursor.execute("SELECT 1")
+            cursor.execute_bul
             result = cursor.fetchall()
             print(f"Connection test result: {result}")
             conn.commit()
