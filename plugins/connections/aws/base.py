@@ -163,6 +163,9 @@ class BaseCursor:
 
     @classmethod
     def escape_table(cls, name: str) -> str:
+        # if ',' in name:
+        #     return '.'.join[(f'{part}' for part in name.split('.'))]
+        # return f'"{name}"'
         return cls.escape_variable(name).replace('.', f'{cls.ESCAPE_CHARACTER}.{cls.ESCAPE_CHARACTER}')
 
     @classmethod
@@ -180,7 +183,7 @@ class BaseCursor:
             f'{cls.escape_variable(col)} {typ}'
             for col, typ in zip(columns, new_types)
         ]
-
+        
         return query_pattern.format(
             options=options,
             table=cls.escape_table(table),
