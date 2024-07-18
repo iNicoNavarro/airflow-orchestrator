@@ -3,7 +3,7 @@ AIRFLOW_DAG_PATH: str = '/airflow/dags/'
 USER__NICOLAS_NAVARRO: str = 'Nicolas Navarro'
 
 USER_EMAILS: dict = {
-    USER__NICOLAS_NAVARRO: 'nicolasnavarro@foodology.com.co',
+    USER__NICOLAS_NAVARRO: 'iniconavarro@gmail.com',
 }
 
 PRIORITY__CRITICAL: int = 10000

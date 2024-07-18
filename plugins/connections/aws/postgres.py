@@ -3,7 +3,7 @@ import datetime
 from airflow.models.connection import Connection
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from psycopg2.extensions import cursor, connection
-from connections.sql.base import BaseCursor, BaseConnection, BaseHook
+from connections.aws.base import BaseCursor, BaseConnection, BaseHook
 from connections.constants import POSTGRES__WRITE__DATA_PROD_ECOVIS,\
       POSTGRES__WRITE__STAGING
 
