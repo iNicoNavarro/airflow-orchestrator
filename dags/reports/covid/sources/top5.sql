@@ -1,4 +1,4 @@
-CREATE VIEW {view_name} AS (
+CREATE OR REPLACE VIEW {view_name} AS (
 WITH daily_changes AS (
     SELECT
         date,
