@@ -102,5 +102,4 @@ docker/local/postgres-data/
 docker/local/redis_data/
 
 # Exclude SQL database files
-*.sql
 *.db
