@@ -7,7 +7,7 @@ from connections.constants import S3__WRITE__POSTGRES_MISC
 from helpers.utils import convert_date
 
 
-S3_BUCKET: str = 'postgres-misc-ecovis'
+S3_BUCKET: str = 'datalabs-postgres-misc'
 S3_BASE_PATH: str = 'covid/{execution_date}'
 S3_BASE_PREPARATION_PATH: str = f'{S3_BASE_PATH}/{{type}}/'
 DATE_FORMAT: str = '%Y-%m-%d'

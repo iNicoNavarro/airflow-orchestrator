@@ -8,7 +8,7 @@ services:
         env_file:
           - .env
         ports:
-          - 5432:5432
+          - 5433:5432
         volumes:
           - ./postgres-data:/var/lib/postgresql/data
         healthcheck:
@@ -36,6 +36,7 @@ services:
           - .env
         environment:
             - AIRFLOW__WEBSERVER__BASE_URL=http://0.0.0.0
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW_DATABASE_SQL_ALCHEMY_CONN}
         ports:
             - 3000:3000
         depends_on:
@@ -50,6 +51,8 @@ services:
         command: /airflow/docker/local/scheduler.sh
         env_file:
             - .env
+        environment:
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW_DATABASE_SQL_ALCHEMY_CONN}
         depends_on:
             airflow_postgres_db:
                 condition: service_healthy
@@ -64,6 +67,8 @@ services:
         command: /airflow/docker/local/worker.sh
         env_file:
           - .env
+        environment:
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW_DATABASE_SQL_ALCHEMY_CONN}
         depends_on:
             airflow_postgres_db:
                 condition: service_healthy
@@ -79,6 +84,8 @@ services:
         command: /airflow/docker/local/triggerer.sh
         env_file:
             - .env
+        environment:
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW_DATABASE_SQL_ALCHEMY_CONN}
         depends_on:
             airflow_postgres_db:
                 condition: service_healthy
@@ -94,6 +101,8 @@ services:
         command: /airflow/docker/local/flower.sh
         env_file:
             - .env
+        environment:
+            - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW_DATABASE_SQL_ALCHEMY_CONN}
         ports:
             - 5555:5555
         depends_on:
